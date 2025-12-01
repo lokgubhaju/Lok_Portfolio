@@ -1,0 +1,93 @@
+.section-intro {
+  padding: 2rem;
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    &__info {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+  }
+  &__hero-section {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  &__hero-text {
+    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 2rem 0;
+    max-width: 700px;
+  }
+
+  &__highlight {
+    display: inline-block;
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    padding: 0.1em 0.4em;
+    border-radius: 0.5rem;
+    color: #fff;
+  }
+
+  &__highlight-alt {
+    color: #22c55e;
+    background: transparent;
+    padding: 0;
+  }
+  &__name {
+    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+  }
+  &__title {
+    font-size: 0.875rem;
+    // color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+  }
+  &__ribbon-container {
+    // position: absolute;
+    // right: 0;
+    // top: 50%;
+    // transform: translateY(-50%);
+    width: 400px;
+    height: 300px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  &__stats-section {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+  }
+  &__stat-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &__stat-number {
+    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 3.5rem;
+    font-weight: 500;
+    line-height: 1;
+    color: #fff;
+  }
+  
+  &__stat-label {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 0.5rem;
+  }
+}

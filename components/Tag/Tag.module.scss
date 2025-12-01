@@ -1,0 +1,15 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  margin-bottom: 32px;
+
+  &__icon {
+    display: inline-flex;
+    width: 1.6em;
+    height: 1.6em;
+  }
+}

@@ -1,0 +1,294 @@
+.work-highlights {
+  padding: 2rem;
+  position: relative;
+
+  &__header {
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  &__heading {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  &__subheading {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
+  &__cards {
+    --card-height: 50vh;
+    --card-top-offset: 80px;
+    --card-gap: 40px;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--card-gap);
+    @media (max-width: 768px) {
+      --card-height: 70vh;
+      --card-top-offset: 60px;
+      --card-gap: 20px;
+    }
+  }
+}
+
+.card {
+  position: sticky;
+  height: var(--card-height);
+
+  // Each card stacks with 40px offset from the previous one
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      z-index: #{$i};
+      top: calc(var(--card-top-offset) + #{($i - 1) * 40}px);
+    }
+  }
+}
+
+.card-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #2a2a2a;
+  padding: 4px;
+
+  &__figure {
+    position: absolute;
+    inset: 4px;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 20px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0.4) 100%
+      );
+      pointer-events: none;
+    }
+  }
+
+  &__image {
+    object-fit: contain;
+    object-position: top;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+    .card:hover & {
+      transform: scale(1.05);
+    }
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    padding: 3rem;
+    border-radius: 0 0 20px 20px;
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.7) 30%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+    color: #fff;
+
+    @media (max-width: 768px) {
+      padding: 2rem;
+    }
+  }
+
+  &__index {
+    font-family: "SF Mono", "Fira Code", Consolas, monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: #22c55e;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    &::after {
+      content: "";
+      width: 50px;
+      height: 1px;
+      background: linear-gradient(90deg, #22c55e, transparent);
+    }
+  }
+
+  &__title {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: #fff;
+    margin: 0 0 0.5rem;
+    line-height: 1.2;
+  }
+
+  &__subtitle {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__tag {
+    font-family: "SF Mono", "Fira Code", Consolas, monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.4rem 0.9rem;
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 100px;
+    color: #22c55e;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(34, 197, 94, 0.25);
+      border-color: rgba(34, 197, 94, 0.5);
+    }
+  }
+
+  &__project-links {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .project-icon-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #22c55e;
+      color: #000;
+      height: 40px;
+      width: 40px;
+      aspect-ratio: 1;
+      border-radius: 999px;
+      flex-shrink: 0;
+      -webkit-transition: all 0.4s ease;
+      -moz-transition: all 0.4s ease;
+      -ms-transition: all 0.4s ease;
+      -o-transition: all 0.4s ease;
+      transition: all 0.4s ease;
+
+      svg {
+        -webkit-transition: transform 0.4s ease;
+        -moz-transition: transform 0.4s ease;
+        -ms-transition: transform 0.4s ease;
+        -o-transition: transform 0.4s ease;
+        transition: transform 0.4s ease;
+      }
+    }
+
+    .project-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #22c55e;
+      color: #000;
+      height: 40px;
+      border-radius: 999px;
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+      -webkit-transition: all 0.4s ease;
+      -moz-transition: all 0.4s ease;
+      -ms-transition: all 0.4s ease;
+      -o-transition: all 0.4s ease;
+      transition: all 0.4s ease;
+      transform: translateX(0);
+      opacity: 1;
+      visibility: visible;
+
+      &:hover {
+        background-color: #22c55e;
+      }
+    }
+
+    // Left icon (first child) - initial state visible
+    > :nth-child(1) {
+      opacity: 1;
+      transform: scale(1);
+      visibility: visible;
+      margin-right: 0;
+    }
+
+    // Right icon (third child) - initial state hidden
+    > :nth-child(3) {
+      opacity: 0;
+      transform: scale(0);
+      visibility: hidden;
+      margin-left: -48px;
+    }
+
+    &:hover {
+      // Left icon fades out and moves right
+      > :nth-child(1) {
+        transform: scale(0);
+        margin-right: -48px;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      // Button stays visible and moves to the left
+      .project-button {
+        transform: translateX(0px);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      // Right icon fades in and moves to position
+      > :nth-child(3) {
+        opacity: 1;
+        margin-left: 0px;
+        transform: scale(1);
+        visibility: visible;
+        rotate: 45deg;
+      }
+    }
+  }
+}
+
+// Subtle decorative gradients
+.work-highlights::before {
+  content: "";
+  position: absolute;
+  top: 15%;
+  right: -5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(34, 197, 94, 0.025) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
