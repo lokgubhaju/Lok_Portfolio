@@ -22,7 +22,7 @@
   }
 
   &__cards {
-    --card-height: 50vh;
+    --card-height: 60vh;
     --card-top-offset: 80px;
     --card-gap: 40px;
 
@@ -85,7 +85,7 @@
   }
 
   &__image {
-    object-fit: contain;
+    object-fit: cover;
     object-position: top;
     transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 
