@@ -2,11 +2,13 @@ import IntroSection from "@/components/Intro/IntroSection";
 import Experience from "@/components/Experience/Experience";
 import Education from "@/components/Education/Education";
 import WorkHighlights from "@/components/WorkHighlights/WorkHighlights";
+import TechStack from "@/components/TechStack/TechStack";
+import Contact from "@/components/Contact/Contact";
 import { getPinnedRepos } from "@/lib/github";
 import { SidebarTool } from "@/components/SidebarTool/SidebarTool";
 
 export default async function Home() {
-  const githubUsername = 'lokgubhaju';
+  const githubUsername = "lokgubhaju";
 
   let workHighlights;
   const images = [
@@ -58,17 +60,23 @@ export default async function Home() {
               title="Frontend Engineer"
               avatarSrc="/images/Lok_avatar.png"
               yearsExperience="4+"
-              projects="10+"
+              projects="15+"
             />
+            <div id="education">
+              <Education />
+            </div>
+            <div id="experience">
+              <Experience />
+            </div>
           </div>
           <div id="work">
             <WorkHighlights items={workHighlights} />
           </div>
-          <div id="experience">
-            <Experience />
+          <div id="tech">
+            <TechStack />
           </div>
-          <div id="education">
-            <Education />
+          <div id="contact">
+            <Contact />
           </div>
         </div>
       </main>

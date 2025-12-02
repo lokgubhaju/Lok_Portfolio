@@ -53,16 +53,14 @@ export default function IntroSection({
       <section
         className={cn(s["section-intro__hero-section"], "flex flex-col")}
       >
-        <h2 className={cn(s["section-intro__hero-text"])}>
-          I&apos;m building{" "}
+        <h2 className={cn(s["section-intro__hero-text"], "font-poppins")}>
+          I&apos;m building high-performance {`  `}
           <span className={cn(s["section-intro__highlight"])}>websites</span>
           <br />
           <span className={cn(s["section-intro__highlight-alt"])}>
-            & brands
+            & digital experiences
           </span>{" "}
-          that people
-          <br />
-          remember
+          that drive results.
         </h2>
 
         {/* Decorative Ribbon - Can be replaced with actual 3D element */}
@@ -132,8 +130,14 @@ export default function IntroSection({
         >
           <h3 className="text-4xl">Frontend Engineer</h3>
           <p className={cn(s["section-intro__about-description"])}>
-            I&apos;m a frontend engineer with a passion for building websites
-            and brands that people remember.
+            I&apos;m a Frontend Engineer specializing in building
+            high-performance websites and scalable interfaces with Next.js,
+            TypeScript, and modern CMS platforms. I&apos;ve delivered impactful
+            digital experiences for brands like Elgato, Corsair, Vodafone, and
+            Playboy—improving accessibility, performance, and user engagement
+            through thoughtful engineering. My work spans everything from API
+            integrations, interactive components, and responsive UI development
+            to accessibility audits and conversion-driven landing pages.
           </p>
         </div>
       </section>

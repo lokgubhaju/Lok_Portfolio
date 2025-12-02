@@ -5,8 +5,9 @@ import Image from "next/image";
 import s from "./WorkHighlights.module.scss";
 import Tag from "../Tag/Tag";
 import { Button } from "../ui/button";
-import { ArrowUpRightIcon, CodeIcon } from "lucide-react";
+import { ArrowUpRightIcon } from "lucide-react";
 import Link from "next/link";
+import { SiGithub } from "@icons-pack/react-simple-icons";
 
 interface WorkHighlight {
   id: string;
@@ -51,8 +52,7 @@ const defaultHighlights: WorkHighlight[] = [
     id: "card-3",
     title: "Arshia Portfolio",
     subtitle: "Portfolio Website",
-    description:
-      "A portfolio template.",
+    description: "A portfolio template.",
     image: "/images/screenshots/Arshia_screenshot.png",
     tags: ["HTML", "CSS", "JavaScript", "Bootstrap"],
     website: "https://lokgubhaju.github.io/Arshia-Portfolio/",
@@ -73,8 +73,7 @@ const defaultHighlights: WorkHighlight[] = [
     id: "card-5",
     title: "Bootstrap v5",
     subtitle: "Bootstrap v5 Template",
-    description:
-      "A Bootstrap v5 template.",
+    description: "A Bootstrap v5 template.",
     image: "/images/screenshots/Bootstrap_screenshot.png",
     tags: ["HTML", "CSS", "JavaScript", "Bootstrap"],
     website: "https://lokgubhaju.github.io/Bootstrap-v5/",
@@ -154,7 +153,7 @@ const Card: React.FC<CardProps> = ({ item, index, totalItems }) => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2"
                   >
-                    <CodeIcon className="size-4" /> View Project
+                    <SiGithub /> View Project
                   </Link>
                 </Button>
               )}

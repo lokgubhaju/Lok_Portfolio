@@ -22,7 +22,6 @@
     margin-bottom: 2rem;
   }
   &__hero-text {
-    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 500;
     line-height: 1.15;
@@ -33,10 +32,26 @@
 
   &__highlight {
     display: inline-block;
-    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-    padding: 0.1em 0.4em;
-    border-radius: 0.5rem;
+    border-radius: 2rem;
     color: #fff;
+    position: relative;
+    z-index: 1;
+    &::before {
+      content: "";
+      background: linear-gradient(
+        180deg,
+        #00de51 0%,
+        rgba(0, 222, 81, 0.4) 100%
+      );
+      width: calc(100% + 0.2em);
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+      height: 100%;
+      border-radius: inherit;
+    }
   }
 
   &__highlight-alt {
@@ -76,7 +91,7 @@
     display: flex;
     flex-direction: column;
   }
-  
+
   &__stat-number {
     font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 3.5rem;
@@ -84,7 +99,7 @@
     line-height: 1;
     color: #fff;
   }
-  
+
   &__stat-label {
     font-size: 0.875rem;
     color: rgba(255, 255, 255, 0.5);
