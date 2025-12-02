@@ -36,16 +36,6 @@ export default function RootLayout({
       className={`${montserrat.variable} ${poppins.variable}`}
     >
       <head>
-        <Script id="ahrefs-analytics" strategy="afterInteractive">
-          {`
-          const ahrefs_analytics_script = document.createElement('script');
-          ahrefs_analytics_script.async = true; ahrefs_analytics_script.src =
-          'https://analytics.ahrefs.com/analytics.js';
-          ahrefs_analytics_script.setAttribute('data-key',
-          'lYama64ZsPsk0WB3SoNJxg');
-          document.getElementsByTagName('head')[0].appendChild(ahrefs_analytics_script);
-          `}
-        </Script>
         <Script id="gtm-base" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){
@@ -78,6 +68,11 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`antialiased`}>
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="lYama64ZsPsk0WB3SoNJxg"
+          strategy="afterInteractive"
+        />
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${
