@@ -165,8 +165,8 @@ export default function Experience({
         });
       },
       {
-        threshold: 0.2,
-        rootMargin: "-10% 0px -10% 0px",
+        threshold: 0.3,
+        rootMargin: "-20% 0px -20% 0px",
       }
     );
 
@@ -262,7 +262,12 @@ export default function Experience({
                       {item.company}
                     </p>
                   )}
-                  <p className={cn(s["section-experience__description"],'text-black dark:text-white/70')}>
+                  <p
+                    className={cn(
+                      s["section-experience__description"],
+                      "text-black dark:text-white/70"
+                    )}
+                  >
                     {item.description}
                   </p>
                 </div>
