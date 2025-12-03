@@ -68,11 +68,6 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`antialiased`}>
-        <Script
-          src="https://analytics.ahrefs.com/analytics.js"
-          data-key="lYama64ZsPsk0WB3SoNJxg"
-          strategy="afterInteractive"
-        />
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${
