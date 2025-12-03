@@ -21,7 +21,55 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Lok Gubhaju | Frontend Engineer",
   description:
-    "Lok Gubhaju is a frontend engineer with a passion for building beautiful and functional websites.",
+    "Lok Gubhaju is a frontend engineer with a passion for building high-performance websites and digital experiences that drive results.",
+  keywords: [
+    "frontend engineer",
+    "web developer",
+    "React",
+    "Next.js",
+    "portfolio",
+  ],
+  authors: [{ name: "Lok Gubhaju" }],
+  creator: "Lok Gubhaju",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://lokgubhaju.com.np"
+  ),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "/",
+    title: "Lok Gubhaju | Frontend Engineer",
+    description:
+      "Lok Gubhaju is a frontend engineer with a passion for building high-performance websites and digital experiences that drive results.",
+    siteName: "Lok Gubhaju Portfolio",
+    images: [
+      {
+        url: "/images/Lok_avatar.png",
+        width: 1200,
+        height: 630,
+        alt: "Lok Gubhaju | Frontend Engineer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lok Gubhaju | Frontend Engineer",
+    description:
+      "Lok Gubhaju is a frontend engineer with a passion for building high-performance websites and digital experiences that drive results.",
+    images: ["/images/Lok_avatar.png"],
+    creator: "",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
