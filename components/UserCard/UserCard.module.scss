@@ -1,0 +1,104 @@
+.available-for-work-container {
+  &__dot {
+    width: 8px;
+    height: 8px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      width: 12px;
+      height: 12px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: available-dot-pulse 1.5s ease-out infinite;
+    }
+  }
+}
+
+@keyframes available-dot-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.6;
+  }
+
+  70% {
+    transform: translate(-50%, -50%) scale(1.7);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.7);
+    opacity: 0;
+  }
+}
+
+.lets-talk-link {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 0.5rem;
+
+  .lets-talk-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #22c55e;
+    color: #000;
+    aspect-ratio: 1;
+    border-radius: 999px;
+    flex-shrink: 0;
+    transition: all 0.4s ease;
+
+    svg {
+      transition: transform 0.4s ease;
+    }
+  }
+
+  .lets-talk-text {
+    transition: all 0.4s ease;
+  }
+
+  > :nth-child(1) {
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+    margin-right: 0;
+  }
+
+  > :nth-child(3) {
+    opacity: 0;
+    transform: scale(0);
+    visibility: hidden;
+    margin-left: -32px;
+  }
+
+  &:hover {
+    > :nth-child(1) {
+      transform: scale(0);
+      margin-right: -32px;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .lets-talk-text {
+      transform: translateX(0px);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    > :nth-child(3) {
+      opacity: 1;
+      margin-left: 0px;
+      transform: scale(1);
+      visibility: visible;
+      rotate: 45deg;
+    }
+  }
+}

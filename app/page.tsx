@@ -6,6 +6,7 @@ import TechStack from "@/components/TechStack/TechStack";
 import Contact from "@/components/Contact/Contact";
 import { getPinnedRepos } from "@/lib/github";
 import { SidebarTool } from "@/components/SidebarTool/SidebarTool";
+import UserCard from "@/components/UserCard/UserCard";
 
 export default async function Home() {
   const githubUsername = "lokgubhaju";
@@ -52,31 +53,57 @@ export default async function Home() {
   return (
     <div>
       <main className="main-content">
-        <div className="max-w-5xl mx-auto">
+        <div className="hidden xl:block fixed left-8 top-1/2 -translate-y-1/2 z-40 w-[360px] lg:w-[480px]">
+          <UserCard
+            name="Lok Gubhaju"
+            title="Frontend Engineer"
+            description="I am a frontend engineer with a passion for building high-performance websites and digital experiences that drive results."
+            linkedinUrl="https://www.linkedin.com/in/lokgubhaju/"
+            githubUrl="https://github.com/lokgubhaju"
+            email="lok.gubhaju@gmail.com"
+            phone="+49-17643498973"
+            address="Gilching, Germany"
+          />
+        </div>
+        <div className="w-full relative px-4 sm:px-6 lg:px-8 md:max-w-[860px] mx-auto xl:ml-[520px] 2xl:mr-8 2xl:max-w-[1200px]">
           <SidebarTool />
-          <div id="home">
-            <IntroSection
-              name="Lok Gubhaju"
-              title="Frontend Engineer"
-              avatarSrc="/images/Lok_avatar.png"
-              yearsExperience="4+"
-              projects="15+"
-            />
+          <div className="flex flex-col gap-16 lg:pr-16 mx-auto">
+            <div id="home">
+              <IntroSection
+                name="Lok Gubhaju"
+                title="Frontend Engineer"
+                avatarSrc="/images/Lok_avatar.png"
+                yearsExperience="4+"
+                projects="15+"
+              />
+              <div id="user" className="block xl:hidden relative">
+                <UserCard
+                  name="Lok Gubhaju"
+                  title="Frontend Engineer"
+                  description="I am a frontend engineer with a passion for building high-performance websites and digital experiences that drive results."
+                  linkedinUrl="https://www.linkedin.com/in/lokgubhaju/"
+                  githubUrl="https://github.com/lokgubhaju"
+                  email="lok.gubhaju@gmail.com"
+                  phone="+49-17643498973"
+                  address="Gilching, Germany"
+                />
+              </div>
+            </div>
             <div id="education">
               <Education />
             </div>
             <div id="experience">
               <Experience />
             </div>
-          </div>
-          <div id="work">
-            <WorkHighlights items={workHighlights} />
-          </div>
-          <div id="tech">
-            <TechStack />
-          </div>
-          <div id="contact">
-            <Contact />
+            <div id="work">
+              <WorkHighlights items={workHighlights} />
+            </div>
+            <div id="tech">
+              <TechStack className="p-1" />
+            </div>
+            <div id="contact">
+              <Contact />
+            </div>
           </div>
         </div>
       </main>
