@@ -75,10 +75,10 @@ export const SidebarTool = () => {
   }, []);
 
   return (
-    <div className="fixed top-1/2 right-4 -translate-y-1/2 flex flex-col items-center gap-4 z-50">
+    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 lg:bottom-auto lg:top-1/2 lg:right-8 lg:left-auto lg:-translate-y-1/2 lg:translate-x-0 flex lg:flex-col items-center gap-4 z-50">
       <ThemeToggle />
 
-      <div className="flex flex-col gap-3 p-2 rounded-3xl bg-white/50 dark:bg-black/50 backdrop-blur-md border border-gray-200/10 shadow-lg outline-2">
+      <div className="flex lg:flex-col gap-3 p-2 rounded-3xl bg-white/50 dark:bg-black/50 backdrop-blur-md border border-gray-200/10 shadow-lg outline-2">
         {navItems.map((item, index) => {
           const Icon = item.icon;
           const isActive = activeSection === item.id;
@@ -86,7 +86,7 @@ export const SidebarTool = () => {
           return (
             <div key={item.id} className="group relative">
               {index === navItems.length - 1 && (
-                <div className="h-px bg-white/50 my-1 mx-2" />
+                <div className="h-px bg-black dark:bg-white/50 my-1 mx-2 hidden lg:block" />
               )}
               <a
                 href={`#${item.id}`}
@@ -107,12 +107,14 @@ export const SidebarTool = () => {
                 />
               </a>
               {/* Tooltip pill */}
-              <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100  transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+              <div className="absolute left-1/2 bottom-full mb-4 -translate-x-1/2 translate-y-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap lg:left-auto lg:bottom-auto lg:mb-0 lg:right-full lg:top-1/2 lg:mr-3 lg:-translate-y-1/2 lg:translate-x-0">
                 <div className="px-3 py-1.5 rounded-full bg-gray-900/90 dark:bg-white dark:text-black backdrop-blur-sm border border-white/10 text-white text-sm font-medium shadow-lg">
                   {item.label}
                 </div>
               </div>
-              {index === 0 && <div className="h-px bg-white/50 my-1 mx-2" />}
+              {index === 0 && (
+                <div className="h-px bg-black dark:bg-white/50 my-1 mx-2 hidden lg:block" />
+              )}
             </div>
           );
         })}
