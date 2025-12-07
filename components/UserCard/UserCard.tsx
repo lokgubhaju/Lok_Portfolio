@@ -74,7 +74,7 @@ export default function UserCard({ ...props }: UserCardProps) {
       <div className="relative h-full w-full rounded-3xl overflow-hidden bg-[#63686F] dark:bg-white backdrop-blur-md">
         <div className="user-card-image w-full h-full p-4 relative">
           <Image
-            src="/images/Lok.jpg"
+            src="/images/lok.jpg"
             alt="Lok Gubhaju"
             layout="fill"
             objectFit="cover"
