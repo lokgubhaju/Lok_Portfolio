@@ -3,7 +3,12 @@ import Image from "next/image";
 import cn from "classnames";
 import s from "@/components/Intro/IntroSection.module.scss";
 import Tag from "../Tag/Tag";
-import { Player } from '@lottiefiles/react-lottie-player'
+import dynamic from "next/dynamic";
+
+const Player = dynamic(
+  () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
+  { ssr: false }
+);
 
 interface IntroSectionProps {
   name?: string;
@@ -64,7 +69,12 @@ export default function IntroSection({
           </span>{" "}
           that drive results.
         </h2>
-        <Player src="/images/developer.json" loop autoplay className="w-[600px] h-[600px] m-0!"/>
+        <Player
+          src="/images/developer.json"
+          loop
+          autoplay
+          className="w-[600px] h-[600px] m-0!"
+        />
       </section>
 
       <section className={cn(s["section-intro__stats-section"])}>
