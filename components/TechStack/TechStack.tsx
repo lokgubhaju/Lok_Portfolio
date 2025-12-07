@@ -1,12 +1,12 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, type ComponentProps } from "react";
 import { motion, useInView } from "framer-motion";
 import { useTheme } from "next-themes";
 import cn from "classnames";
+import dynamic from "next/dynamic";
 import s from "./TechStack.module.scss";
 import Tag from "../Tag/Tag";
-import StackIcon from "tech-stack-icons";
 import ContentfulIcon from "../Icon/ContentfulIcon";
 import DrupalIcon from "../Icon/DrupalIcon";
 import TwigIcon from "../Icon/TwigIcon";
@@ -14,6 +14,15 @@ import BuilderIcon from "../Icon/BuilderIcon";
 import SanityIcon from "../Icon/SanityIcon";
 import { CodeXmlIcon } from "lucide-react";
 import ResendIcon from "../Icon/ResendIcon";
+type StackIconType = typeof import("tech-stack-icons")["default"];
+type StackIconProps = ComponentProps<StackIconType>;
+
+const StackIcon = dynamic<StackIconProps>(() => import("tech-stack-icons"), {
+  ssr: false,
+  loading: () => (
+    <span className={cn(s["section-tech__icon"])} aria-hidden="true" />
+  ),
+});
 
 interface TechItem {
   name: string;
@@ -125,7 +134,7 @@ const itemVariants = {
   },
 };
 
-export default function TechStack() {
+export default function TechStack({ className }: { className: string }) {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, {
     amount: 0.2,
@@ -141,7 +150,7 @@ export default function TechStack() {
   };
 
   return (
-    <section ref={sectionRef} className={cn(s["section-tech"])}>
+    <section ref={sectionRef} className={cn(s["section-tech"], className)}>
       <div className={cn(s["section-tech__container"])}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

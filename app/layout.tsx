@@ -115,7 +115,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`antialiased`}>
+      <body className={`antialiased box-border overflow-x-hidden`}>
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${

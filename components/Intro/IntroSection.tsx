@@ -1,7 +1,9 @@
+"use client";
 import Image from "next/image";
 import cn from "classnames";
 import s from "@/components/Intro/IntroSection.module.scss";
 import Tag from "../Tag/Tag";
+import { Player } from '@lottiefiles/react-lottie-player'
 
 interface IntroSectionProps {
   name?: string;
@@ -62,48 +64,9 @@ export default function IntroSection({
           </span>{" "}
           that drive results.
         </h2>
-
-        {/* Decorative Ribbon - Can be replaced with actual 3D element */}
-        <div className={cn(s["section-intro__ribbon-container"])}>
-          <svg
-            viewBox="0 0 400 300"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <defs>
-              <linearGradient
-                id="ribbonGradient"
-                x1="0%"
-                y1="0%"
-                x2="100%"
-                y2="100%"
-              >
-                <stop offset="0%" stopColor="#22c55e" />
-                <stop offset="50%" stopColor="#16a34a" />
-                <stop offset="100%" stopColor="#15803d" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M50 150 Q100 100 200 120 T350 100 Q400 150 350 200 T200 220 Q100 200 50 150"
-              stroke="url(#ribbonGradient)"
-              strokeWidth="40"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <ellipse
-              cx="280"
-              cy="180"
-              rx="80"
-              ry="80"
-              stroke="url(#ribbonGradient)"
-              strokeWidth="35"
-              fill="none"
-            />
-          </svg>
-        </div>
+        <Player src="/images/developer.json" loop autoplay className="w-[600px] h-[600px] m-0!"/>
       </section>
 
-      {/* Stats Section */}
       <section className={cn(s["section-intro__stats-section"])}>
         <div className={cn(s["section-intro__stat-item"])}>
           <span className={cn(s["section-intro__stat-number"])}>

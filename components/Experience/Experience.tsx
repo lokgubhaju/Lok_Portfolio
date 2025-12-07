@@ -130,17 +130,17 @@ export default function Experience({
         const sectionTop = rect.top;
         const sectionHeight = rect.height;
 
-        // Start animation when section enters viewport
-        // Progress from 0 to 1 as section scrolls through
-        const startOffset = windowHeight * 0.2; // Start when 90% down the viewport
+        const startOffset = windowHeight * 0.2;
         const endOffset = windowHeight * 1;
 
         const totalScrollDistance = sectionHeight + startOffset - endOffset;
+        const safeScrollDistance =
+          totalScrollDistance > 0 ? totalScrollDistance : Math.max(1, sectionHeight);
         const currentScroll = startOffset - sectionTop;
 
         const progress = Math.max(
           0,
-          Math.min(1, currentScroll / totalScrollDistance)
+          Math.min(1, currentScroll / safeScrollDistance)
         );
         setScrollProgress(progress);
       });

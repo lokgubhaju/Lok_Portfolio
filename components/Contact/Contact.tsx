@@ -65,7 +65,7 @@ export default function Contact() {
   };
 
   return (
-    <div className={cn(s["section-contact"])}>
+    <div id="contact" className={cn(s["section-contact"])}>
       <Tag label="Contact" lucideIcon={Send} />
       <div className={cn(s["section-contact__content"])}>
         <h2 className={cn(s["section-contact__title"])}>
@@ -166,8 +166,9 @@ export default function Contact() {
 
           <Button
             type="submit"
+            variant="outline"
             disabled={isSubmitting}
-            className={cn(s["contact-form__submit"], "cursor-auto px-0")}
+            className={cn(s["contact-form__submit"], "cursor-pointer")}
           >
             {isSubmitting ? (
               <>
@@ -175,9 +176,9 @@ export default function Contact() {
                 Sending...
               </>
             ) : (
-              <Button variant="outline" className="cursor-pointer">
+              <>
                 Send Message <SendHorizontal className="ml-2 h-4 w-4" />
-              </Button>
+              </>
             )}
           </Button>
         </form>
