@@ -7,6 +7,7 @@ import cn from "classnames";
 import s from "./UserCard.module.scss";
 import Logo from "../Icon/Logo";
 import SocialIcon from "../SocialIcon/SocialIcon";
+import { TextRotator } from "../ui/TextRotator";
 
 interface UserCardProps {
   name: string;
@@ -80,7 +81,7 @@ export default function UserCard({ ...props }: UserCardProps) {
             className="rounded-3xl p-1.5 dark:block hidden"
           />
           <Image
-            src="/images/Lok_2.jpg"
+            src="/images/Lok_2_compressed.jpg"
             alt="Lok Gubhaju light mode"
             layout="fill"
             objectFit="cover"
@@ -130,13 +131,17 @@ export default function UserCard({ ...props }: UserCardProps) {
 
         {/* bottom content */}
         <div className="absolute bottom-6 left-[24px] right-[24px]">
-          <div className="text-black dark:text-white text-sm">{props.name}</div>
-          <div className="text-black dark:text-white text-sm">
-            {props.title}
-          </div>
-          <div className="text-black dark:text-white text-sm">
+          <h1 className="text-black dark:text-white text-2xl font-bold min-h-8 flex items-center mb-6">
+            Hey, I&apos;m{" "}
+            <TextRotator
+              texts={[props.name, props.title]}
+              rotationInterval={3000}
+              className="ml-2 text-[#22c55e]"
+            />
+          </h1>
+          <p className="text-black dark:text-white text-sm">
             {props.description}
-          </div>
+          </p>
           <div className="line-separator my-6 border-t border-gray-200 dark:border-gray-600"></div>
           <div className="flex items-center justify-between">
             <a href="#contact" className={cn(s["lets-talk-link"])}>
