@@ -115,6 +115,7 @@ export default function RootLayout({
             gtag('config', '${process.env.GA4_ID || "G-KJ7PSNF0S9"}');
           `}
         </Script>
+        <meta name="google-site-verification" content="Gupa4F2tv4t5NspIx4Xrok-Js6PUKdGHv2OmcjLNues" />
       </head>
       <body className={`antialiased box-border overflow-x-hidden`}>
         <noscript>
