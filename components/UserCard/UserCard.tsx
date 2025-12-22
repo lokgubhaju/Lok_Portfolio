@@ -8,6 +8,7 @@ import s from "./UserCard.module.scss";
 import Logo from "../Icon/Logo";
 import SocialIcon from "../SocialIcon/SocialIcon";
 import { TextRotator } from "../ui/TextRotator";
+import { trackDownload, trackButtonClick } from "@/lib/analytics";
 
 interface UserCardProps {
   name: string;
@@ -23,35 +24,13 @@ interface UserCardProps {
   languages?: string[];
 }
 
-declare global {
-  interface Window {
-    dataLayer: Array<Record<string, unknown>>;
-    gtag: (
-      command: string,
-      ...args: Array<string | Record<string, unknown>>
-    ) => void;
-  }
-}
-
 export default function UserCard({ ...props }: UserCardProps) {
   const handleDownloadCV = () => {
-    // Tracking download event with Google Analytics
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "download_cv", {
-        event_category: "CV",
-        event_label: "Lok_CV.pdf",
-        value: 1,
-      });
-    }
+    trackDownload("Lok_CV.pdf", "pdf");
+  };
 
-    // Tracking event with dataLayer for GTM
-    if (typeof window !== "undefined" && window.dataLayer) {
-      window.dataLayer.push({
-        event: "download_cv",
-        event_category: "CV",
-        event_label: "Lok_CV.pdf",
-      });
-    }
+  const handleLetsTalkClick = () => {
+    trackButtonClick("Lets Talk", "navigate", "CTA");
   };
 
   const socialLinks = [
@@ -144,7 +123,11 @@ export default function UserCard({ ...props }: UserCardProps) {
           </p>
           <div className="line-separator my-6 border-t border-gray-200 dark:border-gray-600"></div>
           <div className="flex items-center justify-between">
-            <a href="#contact" className={cn(s["lets-talk-link"])}>
+            <a 
+              href="#contact" 
+              className={cn(s["lets-talk-link"])}
+              onClick={handleLetsTalkClick}
+            >
               <div className={cn(s["lets-talk-icon-wrap"], " w-10 h-10")}>
                 <ArrowUpRightIcon className="size-4" />
               </div>

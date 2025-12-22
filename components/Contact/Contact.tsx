@@ -6,6 +6,7 @@ import s from "./Contact.module.scss";
 import { Button } from "@/components/ui/button";
 import Tag from "../Tag/Tag";
 import { SendHorizontal, Loader2, Send } from "lucide-react";
+import { trackFormSubmit } from "@/lib/analytics";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -51,6 +52,8 @@ export default function Contact() {
         message: "Thank you! Your message has been sent successfully.",
       });
       setFormData({ name: "", email: "", message: "" });
+
+      trackFormSubmit("contact_form", true, "email");
     } catch (error) {
       setSubmitStatus({
         type: "error",
@@ -59,6 +62,8 @@ export default function Contact() {
             ? error.message
             : "Something went wrong. Please try again.",
       });
+
+      trackFormSubmit("contact_form", false);
     } finally {
       setIsSubmitting(false);
     }

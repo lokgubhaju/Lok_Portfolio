@@ -8,6 +8,7 @@ import { Button } from "../ui/button";
 import { ArrowUpRightIcon } from "lucide-react";
 import Link from "next/link";
 import { SiGithub } from "@icons-pack/react-simple-icons";
+import { trackProjectView, trackLinkClick } from "@/lib/analytics";
 
 interface WorkHighlight {
   id: string;
@@ -91,6 +92,15 @@ const Card: React.FC<CardProps> = ({ item, index, totalItems }) => {
   // Fallback to placeholder if image URL is invalid or missing
   const imageSrc = item.image || "/images/placeholder_1.png";
 
+  const handleWebsiteClick = () => {
+    trackProjectView(item.title, item.subtitle);
+    trackLinkClick(item.website || "", item.title, "external");
+  };
+
+  const handleGithubClick = () => {
+    trackLinkClick(item.projectLink || "", `${item.title} - GitHub`, "external");
+  };
+
   return (
     <li
       className={cn(s["card"])}
@@ -141,6 +151,7 @@ const Card: React.FC<CardProps> = ({ item, index, totalItems }) => {
                 href={item.website}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={handleWebsiteClick}
                 className={cn(s["project-icon-wrap"])}
               >
                 <ArrowUpRightIcon className="size-4" />
@@ -151,6 +162,7 @@ const Card: React.FC<CardProps> = ({ item, index, totalItems }) => {
                     href={item.projectLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={handleGithubClick}
                     className="flex items-center gap-2"
                   >
                     <SiGithub /> View Project
@@ -161,6 +173,7 @@ const Card: React.FC<CardProps> = ({ item, index, totalItems }) => {
                 href={item.website}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={handleWebsiteClick}
                 className={cn(s["project-icon-wrap"])}
               >
                 <ArrowUpRightIcon className="size-4" />
