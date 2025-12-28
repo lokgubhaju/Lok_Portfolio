@@ -23,4 +23,4 @@ export {
   trackCustomEvent,
 } from "./trackingHelpers";
 
-export { useInViewTracking, useScrollTracking } from "./hooks";
+export { useScrollTracking } from "./hooks";
