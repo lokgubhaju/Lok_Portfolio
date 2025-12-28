@@ -31,12 +31,12 @@ export const pushToDataLayer = (event: unknown): void => {
     window.dataLayer = [];
   }
 
-  let formattedEvent = event;
+  let formattedEvent: Record<string, unknown> | unknown = event;
   if (isNonNullRecord(event)) {
     formattedEvent = formatEmptyValues(event);
   }
 
-  window.dataLayer.push(formattedEvent);
+  window.dataLayer.push(formattedEvent as Record<string, unknown>);
 
   if (process.env.NODE_ENV === "development") {
     console.log("[GTM] Event pushed to dataLayer:", formattedEvent);
