@@ -81,3 +81,9 @@
     font-family: var(--font-poppins), "Poppins", sans-serif !important;
   }
 }
+
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #22c55e #514e4e;
+}
