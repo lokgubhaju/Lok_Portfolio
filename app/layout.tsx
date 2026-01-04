@@ -3,7 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
-import { Montserrat, Poppins } from "next/font/google";
+import { Montserrat, Poppins, Orbitron } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const montserrat = Montserrat({
@@ -17,6 +17,13 @@ const poppins = Poppins({
   variable: "--font-poppins",
   display: "swap",
   weight: ["400", "500", "600", "700"],
+});
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  variable: "--font-orbitron",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -82,7 +89,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${montserrat.variable} ${poppins.variable}`}
+      className={`${montserrat.variable} ${poppins.variable} ${orbitron.variable}`}
     >
       <head>
         <Script id="gtm-base" strategy="afterInteractive">

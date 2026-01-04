@@ -73,7 +73,7 @@ export default function IntroSection({
           src="/images/developer.json"
           loop
           autoplay
-          className="w-[600px] h-[600px] m-0!"
+          className="w-full h-[600px] m-0!"
         />
       </section>
 

@@ -7,6 +7,7 @@ import Contact from "@/components/Contact/Contact";
 import { getPinnedRepos } from "@/lib/github";
 import { SidebarTool } from "@/components/SidebarTool/SidebarTool";
 import UserCard from "@/components/UserCard/UserCard";
+import { Footer } from "@/components/Footer/Footer";
 
 export default async function Home() {
   const githubUsername = "lokgubhaju";
@@ -105,6 +106,7 @@ export default async function Home() {
               <div id="contact">
                 <Contact />
               </div>
+              <Footer />
             </div>
           </div>
         </div>

@@ -11,6 +11,9 @@ const config: Config = {
       screens: {
         "3xl": "1660px",
       },
+      fontFamily: {
+        orbitron: ["var(--font-orbitron)", "Orbitron", "sans-serif"],
+      },
     },
   },
 };
