@@ -79,9 +79,12 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.svg?v=2",
-    shortcut: "/favicon.svg?v=2",
-    apple: "/favicon.svg?v=2",
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon.svg?v=3", type: "image/svg+xml" },
+    ],
+    shortcut: "/icon.svg?v=3",
+    apple: "/icon.svg?v=3",
   },
 };
 
@@ -131,6 +134,9 @@ export default function RootLayout({
           name="google-site-verification"
           content="Gupa4F2tv4t5NspIx4Xrok-Js6PUKdGHv2OmcjLNues"
         />
+        <link rel="icon" href="/icon.svg?v=3" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/icon.svg?v=3" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/icon.svg?v=3" />
       </head>
       <body className={`antialiased box-border overflow-x-hidden`}>
         <noscript>
