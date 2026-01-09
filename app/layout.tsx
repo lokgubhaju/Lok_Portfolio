@@ -80,11 +80,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/icon.svg?v=3", type: "image/svg+xml" },
     ],
-    shortcut: "/icon.svg?v=3",
-    apple: "/icon.svg?v=3",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
   },
 };
 
@@ -134,9 +134,10 @@ export default function RootLayout({
           name="google-site-verification"
           content="Gupa4F2tv4t5NspIx4Xrok-Js6PUKdGHv2OmcjLNues"
         />
-        <link rel="icon" href="/icon.svg?v=3" type="image/svg+xml" />
-        <link rel="shortcut icon" href="/icon.svg?v=3" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/icon.svg?v=3" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
+        <link rel="alternate icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
       <body className={`antialiased box-border overflow-x-hidden`}>
         <noscript>
