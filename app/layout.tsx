@@ -27,28 +27,50 @@ const orbitron = Orbitron({
 });
 
 export const metadata: Metadata = {
-  title: "Lok Gubhaju | Frontend Engineer",
+  title: {
+    default: "Lok Gubhaju | Frontend Engineer in Munich, Germany",
+    template: "%s | Lok Gubhaju",
+  },
   description:
-    "Lok Gubhaju is a frontend engineer with a passion for building high-performance websites and digital experiences that drive results.",
+    "Lok Gubhaju is a Frontend Engineer based in Munich, Germany, specializing in React, Next.js, and TypeScript. Building high-performance, accessible, and scalable web applications.",
   keywords: [
-    "frontend engineer",
-    "web developer",
-    "React",
-    "Next.js",
-    "portfolio",
+    "Frontend Engineer",
+    "Web Developer",
+    "React Developer",
+    "Next.js Expert",
+    "TypeScript",
+    "JavaScript",
+    "UI/UX Engineering",
+    "Web Performance Optimization",
+    "Accessibility",
+    "a11y",
+    "Munich Web Developer",
+    "Germany Frontend Developer",
+    "Freelance Web Developer",
+    "Lok Gubhaju",
+    "Portfolio",
+    "Tailwind CSS",
   ],
-  authors: [{ name: "Lok Gubhaju" }],
+  authors: [{ name: "Lok Gubhaju", url: "https://lokgubhaju.com.np" }],
   creator: "Lok Gubhaju",
+  publisher: "Lok Gubhaju",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://lokgubhaju.com.np"
   ),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    type: "website",
+    type: "profile",
+    firstName: "Lok",
+    lastName: "Gubhaju",
+    username: "lokgubhaju",
+    gender: "male",
     locale: "en_US",
     url: "/",
     title: "Lok Gubhaju | Frontend Engineer",
     description:
-      "Lok Gubhaju is a frontend engineer with a passion for building high-performance websites and digital experiences that drive results.",
+      "Lok Gubhaju is a Frontend Engineer based in Munich, Germany, specializing in React, Next.js, and TypeScript. Building high-performance, accessible, and scalable web applications.",
     siteName: "Lok Gubhaju Portfolio",
     images: [
       {
@@ -63,9 +85,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Lok Gubhaju | Frontend Engineer",
     description:
-      "Lok Gubhaju is a frontend engineer with a passion for building high-performance websites and digital experiences that drive results.",
+      "Lok Gubhaju is a Frontend Engineer based in Munich, Germany, specializing in React, Next.js, and TypeScript.",
     images: ["/images/Lok_avatar.png"],
-    creator: "",
+    creator: "@lokgubhaju",
   },
   robots: {
     index: true,
@@ -78,13 +100,8 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/icon.svg", type: "image/svg+xml" },
-    ],
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+  verification: {
+    google: "Gupa4F2tv4t5NspIx4Xrok-Js6PUKdGHv2OmcjLNues",
   },
 };
 
@@ -99,7 +116,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${montserrat.variable} ${poppins.variable} ${orbitron.variable}`}
     >
-      <head>
+      <body className={`antialiased box-border overflow-x-hidden`}>
         <Script id="gtm-base" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){
@@ -130,16 +147,31 @@ export default function RootLayout({
             gtag('config', '${process.env.GA4_ID || "G-KJ7PSNF0S9"}');
           `}
         </Script>
-        <meta
-          name="google-site-verification"
-          content="Gupa4F2tv4t5NspIx4Xrok-Js6PUKdGHv2OmcjLNues"
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Lok Gubhaju",
+              url: "https://lokgubhaju.com.np",
+              image: "https://lokgubhaju.com.np/images/Lok_avatar.png",
+              sameAs: [
+                "https://www.linkedin.com/in/lokgubhaju/",
+                "https://github.com/lokgubhaju",
+              ],
+              jobTitle: "Frontend Engineer",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Munich",
+                addressRegion: "Bavaria",
+                addressCountry: "DE",
+              },
+              description:
+                "Frontend Engineer based in Munich, Germany, specializing in React, Next.js, and TypeScript.",
+            }),
+          }}
         />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/favicon.svg" />
-        <link rel="alternate icon" href="/favicon.svg" type="image/svg+xml" />
-      </head>
-      <body className={`antialiased box-border overflow-x-hidden`}>
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${
