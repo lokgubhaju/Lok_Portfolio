@@ -8,6 +8,7 @@ import { getPinnedRepos } from "@/lib/github";
 import { SidebarTool } from "@/components/SidebarTool/SidebarTool";
 import UserCard from "@/components/UserCard/UserCard";
 import { Footer } from "@/components/Footer/Footer";
+import Chatbot from "@/components/Chatbot/Chatbot";
 
 export default async function Home() {
   const githubUsername = "lokgubhaju";
@@ -69,6 +70,7 @@ export default async function Home() {
           </div>
           <div className="w-full relative md:max-w-[860px] lg:max-w-[960px] xl:max-w-[1000px] 2xl:max-w-[1200px] mx-auto flex-1 xl:ml-[440px] xl:mr-[140px]">
             <SidebarTool />
+            <Chatbot />
             <div className="flex flex-col gap-16 lg:pr-16">
               <div id="home">
                 <IntroSection
