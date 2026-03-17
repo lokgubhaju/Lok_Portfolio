@@ -12,7 +12,7 @@ interface ExperienceItem {
   logo?: React.ReactNode;
   title: string;
   company: string;
-  description: string;
+  description: string[];
 }
 
 interface ExperienceProps {
@@ -22,35 +22,47 @@ interface ExperienceProps {
 const experienceItems: ExperienceItem[] = [
   {
     id: "1",
-    dateRange: "August 2023 - Now",
+    dateRange: "Aug 2023 - Feb 2026",
     title: "Frontend Engineer",
     company: "SMAL GmbH, Munich",
-    description:
-      "Developed and maintained the frontend of the SMAL platform using React.js. The platform allows users to create and manage their own dynamic dashboards.",
+    description: [
+      "Engineered Next.js e-commerce experiences with SSR and SSG, helping achieve 90+ Lighthouse scores and improving SEO, accessibility, and performance.",
+      "Integrated RESTful and GraphQL APIs to improve data fetching efficiency and support real-time user experiences.",
+      "Built scalable websites with Next.js, TypeScript, Contentful, Tailwind CSS, and SCSS in close collaboration with designers to deliver responsive, pixel-perfect UIs.",
+      "Delivered key Elgato features including Cloudinary media handling, GTM dataLayer tracking, Lottie animations, GSAP scroll effects, hero sliders, and interactive product comparison tools.",
+    ],
   },
   {
     id: "2",
-    dateRange: "Oct. 2021 - July 2023",
+    dateRange: "Oct 2021 - Jul 2023",
     title: "Frontend Developer (Internship & Working Student)",
     company: "SMAL GmbH, Munich",
-    description:
-      "Developed and maintained the frontend of the SMAL platform using Vue.js. The platform allows users to create and manage their own dynamic dashboards.",
+    description: [
+      "Built and optimized high-converting landing pages and frontend features across multiple client projects at SMAL.",
+      "Contributed to Corsair campaign pages using Twig, Alpine.js, and SCSS, improving engagement and site performance.",
+      "Resolved accessibility issues in Vodafone's router dashboard UI, improving WCAG compliance, screen reader support, and keyboard navigation with Vue.js and SimpleLocalize.",
+      "Implemented navigation and model gallery features for Playboy Premium using Angular and Drupal to improve content discoverability and performance.",
+    ],
   },
   {
     id: "3",
-    dateRange: "May 2021 - July 2021",
+    dateRange: "May 2021 - Jul 2021",
     title: "Frontend Developer (Internship)",
     company: "DynAmaze AG, Köln",
-    description:
-      "Developed and maintained the frontend of the DynAmaze platform using Vue.js.",
+    description: [
+      "Supported frontend development with Nuxt.js and Vue.js, contributing dynamic components for high-performance web applications.",
+      "Worked with senior developers to integrate APIs and refine the homepage UI and core interfaces.",
+    ],
   },
   {
     id: "4",
-    dateRange: "Nov. 2020 - April 2021",
+    dateRange: "Nov 2020 - Apr 2021",
     title: "Master's Project (Monitoring & Visualization for Flows in Titan)",
     company: "wobe-systems GmbH, Kiel",
-    description:
-      "Developed a monitoring and visualization system for flows in Titan using React, Three.js, and D3.js. The system allows users to monitor and visualize the flows in Titan in real-time.",
+    description: [
+      "Contributed to frontend development tasks and collaborated with the team on web application projects.",
+      "Conducted in-depth research on monitoring and visualization techniques within Titan, an open-source Industrial DevOps platform.",
+    ],
   },
 ];
 
@@ -135,12 +147,14 @@ export default function Experience({
 
         const totalScrollDistance = sectionHeight + startOffset - endOffset;
         const safeScrollDistance =
-          totalScrollDistance > 0 ? totalScrollDistance : Math.max(1, sectionHeight);
+          totalScrollDistance > 0
+            ? totalScrollDistance
+            : Math.max(1, sectionHeight);
         const currentScroll = startOffset - sectionTop;
 
         const progress = Math.max(
           0,
-          Math.min(1, currentScroll / safeScrollDistance)
+          Math.min(1, currentScroll / safeScrollDistance),
         );
         setScrollProgress(progress);
       });
@@ -167,7 +181,7 @@ export default function Experience({
       {
         threshold: 0.3,
         rootMargin: "-20% 0px -20% 0px",
-      }
+      },
     );
 
     // Observe items after a small delay to ensure they're rendered
@@ -247,7 +261,7 @@ export default function Experience({
                   <h3
                     className={cn(
                       s["section-experience__title"],
-                      "text-black dark:text-white"
+                      "text-black dark:text-white",
                     )}
                   >
                     {item.title}
@@ -256,20 +270,22 @@ export default function Experience({
                     <p
                       className={cn(
                         s["section-experience__company"],
-                        "text-black dark:text-white/70"
+                        "text-black dark:text-white/70",
                       )}
                     >
                       {item.company}
                     </p>
                   )}
-                  <p
+                  <ul
                     className={cn(
                       s["section-experience__description"],
-                      "text-black dark:text-white/70"
+                      "list-disc space-y-2 pl-5 text-black dark:text-white/70",
                     )}
                   >
-                    {item.description}
-                  </p>
+                    {item.description.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             );
