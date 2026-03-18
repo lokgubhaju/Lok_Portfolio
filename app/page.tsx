@@ -8,6 +8,7 @@ import { getPinnedRepos } from "@/lib/github";
 import { SidebarTool } from "@/components/SidebarTool/SidebarTool";
 import UserCard from "@/components/UserCard/UserCard";
 import { Footer } from "@/components/Footer/Footer";
+import Certifications from "@/components/Certifications/Certifications";
 
 export default async function Home() {
   const githubUsername = "lokgubhaju";
@@ -99,6 +100,9 @@ export default async function Home() {
               </div>
               <div id="work">
                 <WorkHighlights items={workHighlights} />
+              </div>
+              <div id="certifications">
+                <Certifications />
               </div>
               <div id="tech">
                 <TechStack className="p-1" />
