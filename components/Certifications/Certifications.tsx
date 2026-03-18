@@ -7,6 +7,7 @@ import Tag from "../Tag/Tag";
 import { BadgeCheck, ExternalLink } from "lucide-react";
 import GoogleIcon from "../Icon/GoogleIcon";
 import ContentfulIcon from "../Icon/ContentfulIcon";
+import { trackLinkClick } from "@/lib/analytics";
 
 interface CertificationItem {
   id: string;
@@ -118,6 +119,7 @@ export default function Certifications() {
               onClick={(e) => {
                 if (cert.credentialUrl) {
                   e.preventDefault();
+                  trackLinkClick(cert.credentialUrl, cert.title, "external");
                   window.open(
                     cert.credentialUrl,
                     "_blank",
@@ -177,6 +179,14 @@ export default function Certifications() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={s["certifications__link"]}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      trackLinkClick(
+                        cert.credentialUrl!,
+                        `View ${cert.title}`,
+                        "external",
+                      );
+                    }}
                   >
                     <ExternalLink size={13} />
                     <span>View</span>
