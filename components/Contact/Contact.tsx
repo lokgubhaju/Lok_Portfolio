@@ -65,7 +65,7 @@ export default function Contact() {
   };
 
   return (
-    <div id="contact" className={cn(s["section-contact"])}>
+    <div className={cn(s["section-contact"])}>
       <Tag label="Contact" lucideIcon={Send} />
       <div className={cn(s["section-contact__content"])}>
         <h2 className={cn(s["section-contact__title"])}>

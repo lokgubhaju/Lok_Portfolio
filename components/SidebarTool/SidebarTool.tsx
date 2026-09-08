@@ -10,6 +10,7 @@ import {
   ArrowUp,
   LayersIcon,
   Send,
+  BadgeCheck,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "../ui/button";
@@ -26,6 +27,7 @@ const navItems: NavItem[] = [
   { id: "education", icon: GraduationCap, label: "Education" },
   { id: "experience", icon: Sparkles, label: "Experience" },
   { id: "work", icon: Briefcase, label: "Work" },
+  { id: "certifications", icon: BadgeCheck, label: "Certifications" },
   { id: "tech", icon: LayersIcon, label: "Tech Stack" },
   { id: "contact", icon: Send, label: "Contact" },
 ];
@@ -56,7 +58,7 @@ export const SidebarTool = () => {
         const sectionMiddle = (section.top + section.bottom) / 2;
         const distance = Math.abs(sectionMiddle - viewportMiddle);
         const closestDistance = Math.abs(
-          (closest.top + closest.bottom) / 2 - viewportMiddle
+          (closest.top + closest.bottom) / 2 - viewportMiddle,
         );
         return distance < closestDistance ? section : closest;
       }, sections[0]);

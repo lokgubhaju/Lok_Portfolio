@@ -3,7 +3,8 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
-import { Montserrat, Poppins } from "next/font/google";
+import { Montserrat, Poppins, Orbitron } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -18,29 +19,58 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
 });
 
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  variable: "--font-orbitron",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
 export const metadata: Metadata = {
-  title: "Lok Gubhaju | Frontend Engineer",
+  title: {
+    default: "Lok Gubhaju | Frontend Engineer in Munich, Germany",
+    template: "%s | Lok Gubhaju",
+  },
   description:
-    "Lok Gubhaju is a frontend engineer with a passion for building high-performance websites and digital experiences that drive results.",
+    "Lok Gubhaju is a Frontend Engineer based in Munich, Germany, specializing in React, Next.js, and TypeScript. Building high-performance, accessible, and scalable web applications.",
   keywords: [
-    "frontend engineer",
-    "web developer",
-    "React",
-    "Next.js",
-    "portfolio",
+    "Frontend Engineer",
+    "Web Developer",
+    "React Developer",
+    "Next.js Expert",
+    "TypeScript",
+    "JavaScript",
+    "UI/UX Engineering",
+    "Web Performance Optimization",
+    "Accessibility",
+    "a11y",
+    "Munich Web Developer",
+    "Germany Frontend Developer",
+    "Freelance Web Developer",
+    "Lok Gubhaju",
+    "Portfolio",
+    "Tailwind CSS",
   ],
-  authors: [{ name: "Lok Gubhaju" }],
+  authors: [{ name: "Lok Gubhaju", url: "https://lokgubhaju.com.np" }],
   creator: "Lok Gubhaju",
+  publisher: "Lok Gubhaju",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://lokgubhaju.com.np"
   ),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    type: "website",
+    type: "profile",
+    firstName: "Lok",
+    lastName: "Gubhaju",
+    username: "lokgubhaju",
+    gender: "male",
     locale: "en_US",
     url: "/",
     title: "Lok Gubhaju | Frontend Engineer",
     description:
-      "Lok Gubhaju is a frontend engineer with a passion for building high-performance websites and digital experiences that drive results.",
+      "Lok Gubhaju is a Frontend Engineer based in Munich, Germany, specializing in React, Next.js, and TypeScript. Building high-performance, accessible, and scalable web applications.",
     siteName: "Lok Gubhaju Portfolio",
     images: [
       {
@@ -55,9 +85,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Lok Gubhaju | Frontend Engineer",
     description:
-      "Lok Gubhaju is a frontend engineer with a passion for building high-performance websites and digital experiences that drive results.",
+      "Lok Gubhaju is a Frontend Engineer based in Munich, Germany, specializing in React, Next.js, and TypeScript.",
     images: ["/images/Lok_avatar.png"],
-    creator: "",
+    creator: "@lokgubhaju",
   },
   robots: {
     index: true,
@@ -70,6 +100,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "Gupa4F2tv4t5NspIx4Xrok-Js6PUKdGHv2OmcjLNues",
+  },
 };
 
 export default function RootLayout({
@@ -81,9 +114,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${montserrat.variable} ${poppins.variable}`}
+      className={`${montserrat.variable} ${poppins.variable} ${orbitron.variable}`}
     >
-      <head>
+      <body className={`antialiased box-border overflow-x-hidden`}>
         <Script id="gtm-base" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){
@@ -114,8 +147,31 @@ export default function RootLayout({
             gtag('config', '${process.env.GA4_ID || "G-KJ7PSNF0S9"}');
           `}
         </Script>
-      </head>
-      <body className={`antialiased box-border overflow-x-hidden`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Lok Gubhaju",
+              url: "https://lokgubhaju.com.np",
+              image: "https://lokgubhaju.com.np/images/Lok_avatar.png",
+              sameAs: [
+                "https://www.linkedin.com/in/lokgubhaju/",
+                "https://github.com/lokgubhaju",
+              ],
+              jobTitle: "Frontend Engineer",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Munich",
+                addressRegion: "Bavaria",
+                addressCountry: "DE",
+              },
+              description:
+                "Frontend Engineer based in Munich, Germany, specializing in React, Next.js, and TypeScript.",
+            }),
+          }}
+        />
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${
@@ -129,6 +185,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
           <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
